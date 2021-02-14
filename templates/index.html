@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+        <title>wet ass pussy</title>
+        <h1>COVID-19 Live Update</h1>
+        <h3>实时报道</h3>
+    </head>
+    <body>
+        <button>点我有惊喜</button>
+        <script>
+            $("button").click(function(){
+                $.ajax({
+                    url: "/ajax",
+                    type: "post",
+                    data: {"name":"Zhang San","score":"100"},
+                    success: function(d){
+                        $("h1").html("郑东海是" + d)
+                    },error: function(){
+                        alert("nmsl")
+                    }
+                })
+            })
+        </script>
+    </body>
+    <footer>
+
+    </footer>
+    
+</html>

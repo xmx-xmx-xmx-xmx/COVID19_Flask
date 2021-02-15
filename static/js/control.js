@@ -44,3 +44,26 @@ function get_center2_data(){
 }
 get_center2_data()
 setInterval(get_center2_data, 1000)
+
+function get_left1_data(){
+    $.ajax({
+        url:"/left1",
+        success:function(data){
+            ec_left1_option.xAxis[0].data=data.day
+            ec_left1_option.xAxis[1].data=data.confirm
+            ec_left1_option.xAxis[2].data=data.suspect
+            ec_left1_option.xAxis[3].data=data.heal
+            ec_left1_option.xAxis[4].data=data.dead
+            ec_left1.setOption(ec_left1_option)
+        },
+        error:function(xhr,type,errorThrown){}
+    })
+}
+get_left1_data()
+setInterval(get_left1_data, 1000)
+
+function get_left2_data(){
+
+}
+get_left2_data()
+setInterval(get_left2_data, 1000)

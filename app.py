@@ -5,10 +5,6 @@ from flask import jsonify
 import utils # 导入自己写的utils
 app = Flask(__name__) # 创建flask实例，名叫app
 
-# @app.route('/') # 使用 route() 装饰器来告诉 Flask 触发函数的 URL
-# def home():
-#     return "zdhnb"
-
 @app.route('/') 
 # def home1():
 #     # id = request.values.get("id")
@@ -49,9 +45,26 @@ def get_center1_data():
 def get_center2_data():
     res = []
     for tup in utils.get_center2_data(): # 遍历
-        print(tup)
+        # print(tup)
         res.append({"name":tup[0],"value":int(tup[1])}) # 拼装成dict 追加到res
     return jsonify({"data":res}) # json化输出
+
+@app.route('/left1')
+def get_left1_data():
+    data = utils.get_left1_data()
+    day, confirm, suspect, heal, dead = [],[],[],[],[]
+    for a, b, c, d, e in data[7:]:
+        day.append(a.strftime("%m-%d"))
+        confirm.append(b)
+        suspect.append(c)
+        heal.append(d)
+        dead.append(e)
+    return jsonify({"day":day, "confirm":confirm, "suspect":suspect, "heal":heal, "dead":dead})
+
+@app.route('/left2')
+def get_left2_data():
+    res = []
+    return
 
 if __name__ == "__main__":
     app.run()

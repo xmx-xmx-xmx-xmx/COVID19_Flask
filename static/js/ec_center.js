@@ -16,11 +16,13 @@ var ec_center_option = {
     visualMap: {
         show: true,
         x: 'left',
-        y: 'bottom',
+        y: 'top',
         textStyle: {
-            fontSize: 8,
+            fontSize: 10,
+            color: '#ffffff'
         },
-        splitList: [{ start: 1,end: 9 },
+        splitList: 
+            [{ start: 1,end: 9 },
             {start: 10, end: 99 }, 
 			{ start: 100, end: 999 },
             {  start: 1000, end: 9999 },
@@ -33,6 +35,7 @@ var ec_center_option = {
         type: 'map',
         mapType: 'china',
         roam: true, //拖动和缩放
+        zoom: 0.8,
         itemStyle: {
             normal: {
                 borderWidth: .4, //区域边框宽度
@@ -55,7 +58,7 @@ var ec_center_option = {
                 fontSize: 10,
             }
         },
-        data:[] //mydata //数据
+        data:mydata //mydata //数据
     }]
 };
 ec_center.setOption(ec_center_option)

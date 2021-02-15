@@ -50,5 +50,21 @@ def get_center2_data():
     res = query(sql1)
     return res
 
+def get_left1_data():
+    """
+        释义：获取左1
+    """
+    sql2 = "select ds,confirm,suspect,heal,dead from history"
+    res = query(sql2)
+    return res
+
+def get_left2_data():
+    """
+        释义：获取左2
+    """
+    sql3 = "select ds,confirm_add,suspect_add from history"
+    res = query(sql3)
+    return res
+
 if __name__ == "__main__": # 测试
     print(get_center1_data())

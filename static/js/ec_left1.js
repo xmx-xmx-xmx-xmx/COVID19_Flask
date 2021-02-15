@@ -4,6 +4,7 @@ var ec_left1_option = {
     title: {
         text: '全国累计趋势',
         left: 'left',
+        color: '#fff',
         textStyle:
         {color: "#ffffff"}
     },
@@ -31,12 +32,16 @@ var ec_left1_option = {
         containLabel: true
     },
     toolbox: {
+        itemSize: 15,
+        showTitle: true,
         feature: {
             saveAsImage: {}
         }
     },
     xAxis: {
         type: 'category',
+        nameTextStyle:
+        {color: "#ffffff"},
         //x轴坐标点开始与结束点位置都不在最边缘
 		// boundaryGap : true,
 		data: []
@@ -73,7 +78,7 @@ var ec_left1_option = {
             name: '累计确诊',
             type: 'line',
             smooth: true,
-            data: []
+            data: [],
         },
         {
             name: '现有疑似',

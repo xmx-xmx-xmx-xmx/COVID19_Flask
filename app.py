@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, json
 from flask import request # 获取参数
 from flask import render_template # 使用模板页面
 from flask import jsonify
@@ -53,8 +53,8 @@ def get_center2_data():
 def get_left1_data():
     data = utils.get_left1_data()
     day, confirm, suspect, heal, dead = [],[],[],[],[]
-    for a, b, c, d, e in data[7:]:
-        day.append(a.strftime("%m-%d"))
+    for a, b, c, d, e in data: # [7:]第八条开始
+        day.append(a.strftime("%m.%d"))
         confirm.append(b)
         suspect.append(c)
         heal.append(d)
@@ -63,8 +63,13 @@ def get_left1_data():
 
 @app.route('/left2')
 def get_left2_data():
-    res = []
-    return
+    data = utils.get_left2_data()
+    ds, confirm_add, suspect_add = [],[],[]
+    for a, b, c in data:
+        ds.append(a.strftime("%m.%d"))
+        confirm_add.append(b)
+        suspect_add.append(c)
+    return jsonify({"ds":ds, "confirm_add":confirm_add, "suspect_add":suspect_add})
 
 if __name__ == "__main__":
     app.run()

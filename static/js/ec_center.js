@@ -58,7 +58,7 @@ var ec_center_option = {
                 fontSize: 10,
             }
         },
-        data:mydata //mydata //数据
+        data:[] //mydata //数据
     }]
 };
 ec_center.setOption(ec_center_option)

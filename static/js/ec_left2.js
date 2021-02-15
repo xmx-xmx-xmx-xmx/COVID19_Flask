@@ -2,7 +2,7 @@ var ec_left2 = echarts.init(document.getElementById('left2',"dark")); // dark是
 
 var ec_left2_option = {
     title: {
-        text: '全国累计趋势',
+        text: '新增趋势展示',
         left: 'left',
         color: '#fff',
         textStyle:
@@ -18,7 +18,7 @@ var ec_left2_option = {
 		},
     },
     legend: {
-        data: ['累计确诊', '现有疑似', '累计治愈', '累计死亡'],
+        data: ['新增确诊', '新增疑似'],
         left: 'center',
         textStyle:
         {color: "#ffffff"}
@@ -40,6 +40,8 @@ var ec_left2_option = {
     },
     xAxis: {
         type: 'category',
+        nameTextStyle:
+        {color: "#ffffff"},
         //x轴坐标点开始与结束点位置都不在最边缘
 		// boundaryGap : true,
 		data: []//['01.20', '01.21', '01.22']
@@ -73,25 +75,13 @@ var ec_left2_option = {
     }],
     series: [
         {
-            name: '累计确诊',
+            name: '新增确诊',
             type: 'line',
             smooth: true,
             data: []
         },
         {
-            name: '现有疑似',
-            type: 'line',
-            smooth: true,
-            data: []
-        },
-        {
-            name: '累计治愈',
-            type: 'line',
-            smooth: true,
-            data: []
-        },
-        {
-            name: '累计死亡',
+            name: '新增疑似',
             type: 'line',
             smooth: true,
             data: []

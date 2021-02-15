@@ -66,5 +66,5 @@ def get_left2_data():
     res = query(sql3)
     return res
 
-if __name__ == "__main__": # 测试
-    print(get_center1_data())
+# if __name__ == "__main__": # 测试
+#     print(get_center1_data())

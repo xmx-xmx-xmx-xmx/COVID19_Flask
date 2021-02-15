@@ -29,7 +29,7 @@ error: function(xhr, type, errorThrown) {
 });
 }
 get_center1_data()
-setInterval(get_center1_data, 1000) // 一秒钟执行一次这个函数
+setInterval(get_center1_data, 10000) // 十秒钟执行一次这个函数
 
 function get_center2_data(){
     $.ajax({
@@ -43,27 +43,36 @@ function get_center2_data(){
     });
 }
 get_center2_data()
-setInterval(get_center2_data, 1000)
+setInterval(get_center2_data, 10000)
 
 function get_left1_data(){
     $.ajax({
         url:"/left1",
         success:function(data){
-            ec_left1_option.xAxis[0].data=data.day
-            ec_left1_option.xAxis[1].data=data.confirm
-            ec_left1_option.xAxis[2].data=data.suspect
-            ec_left1_option.xAxis[3].data=data.heal
-            ec_left1_option.xAxis[4].data=data.dead
+            ec_left1_option.xAxis.data=data.day
+            ec_left1_option.series[0].data=data.confirm
+            ec_left1_option.series[1].data=data.suspect
+            ec_left1_option.series[2].data=data.heal
+            ec_left1_option.series[3].data=data.dead
             ec_left1.setOption(ec_left1_option)
         },
         error:function(xhr,type,errorThrown){}
     })
 }
 get_left1_data()
-setInterval(get_left1_data, 1000)
+// setInterval(get_left1_data, 10000)
 
 function get_left2_data(){
-
+    $.ajax({
+        url:"/left2",
+        success:function(data){
+            ec_left2_option.xAxis.data=data.ds
+            ec_left2_option.series[0].data=data.confirm_add
+            ec_left2_option.series[1].data=data.suspect_add
+            ec_left2.setOption(ec_left2_option)
+        },
+        error:function(xhr,type,errorThrown){}
+    })
 }
 get_left2_data()
-setInterval(get_left2_data, 1000)
+// setInterval(get_left2_data, 10000)

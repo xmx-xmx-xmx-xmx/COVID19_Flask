@@ -42,6 +42,13 @@ def get_center1_data():
     res = query(sql)
     return res[0]
 
+def get_center2_data():
+    """
+        释义：获取最新的累计确诊显示在地图上
+    """
+    sql1 = "select province, sum(confirm) from detail where update_time=(select update_time from detail order by update_time desc limit 1) group by province"
+    res = query(sql1)
+    return res
 
 if __name__ == "__main__": # 测试
     print(get_center1_data())

@@ -45,5 +45,13 @@ def get_center1_data():
 #     print(f"name:{name},score:{score}")
 #     return "dalao"
 
+@app.route('/center2')
+def get_center2_data():
+    res = []
+    for tup in utils.get_center2_data(): # 遍历
+        print(tup)
+        res.append({"name":tup[0],"value":int(tup[1])}) # 拼装成dict 追加到res
+    return jsonify({"data":res}) # json化输出
+
 if __name__ == "__main__":
     app.run()

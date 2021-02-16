@@ -66,5 +66,29 @@ def get_left2_data():
     res = query(sql3)
     return res
 
+def get_right1_data():
+    """
+        释义：获取右1
+    """
+    sql4 = 'SELECT city,confirm FROM ' \
+        '(select city,confirm from detail  ' \
+        'where update_time=(select update_time from detail order by update_time desc limit 1) ' \
+        'and province not in ("湖北","北京","上海","天津","重庆","香港","台湾") ' \
+        'union all ' \
+        'select province as city,sum(confirm) as confirm from detail  ' \
+        'where update_time=(select update_time from detail order by update_time desc limit 1) ' \
+        'and province in ("北京","上海","天津","重庆","香港","台湾") group by province) as a ' \
+        'ORDER BY confirm DESC LIMIT 5'
+    res = query(sql4)
+    return res
+
+# def get_right2_data():
+#     """
+#         释义：获取右2
+#     """
+#     sql5 = "select title from news_info order by realtime desc limit 20"
+#     res = query(sql5)
+#     return res
+
 # if __name__ == "__main__": # 测试
-#     print(get_center1_data())
+#     print(get_right2_data())

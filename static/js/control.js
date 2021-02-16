@@ -10,8 +10,7 @@ error: function(xhr, type, errorThrown) {
 }
 });
 }
-gettime()
-setInterval(gettime, 1000) // 一秒钟执行一次这个函数
+
 
 function get_center1_data(){
     $.ajax({
@@ -28,8 +27,6 @@ error: function(xhr, type, errorThrown) {
 }
 });
 }
-get_center1_data()
-setInterval(get_center1_data, 10000) // 十秒钟执行一次这个函数
 
 function get_center2_data(){
     $.ajax({
@@ -42,8 +39,7 @@ function get_center2_data(){
         error:function(xhr,type,errorThrown){}
     });
 }
-get_center2_data()
-setInterval(get_center2_data, 10000)
+
 
 function get_left1_data(){
     $.ajax({
@@ -59,8 +55,7 @@ function get_left1_data(){
         error:function(xhr,type,errorThrown){}
     })
 }
-get_left1_data()
-// setInterval(get_left1_data, 10000)
+
 
 function get_left2_data(){
     $.ajax({
@@ -74,5 +69,44 @@ function get_left2_data(){
         error:function(xhr,type,errorThrown){}
     })
 }
+
+
+function get_right1_data(){
+    $.ajax({
+        url:"/right1",
+        success:function(data){
+            ec_right1_option.xAxis.data=data.city
+            ec_right1_option.series[0].data=data.confirm
+            ec_right1.setOption(ec_right1_option)
+        },
+        error:function(xhr,type,errorThrown){}
+    })
+}
+
+
+// function get_right2_data(){
+//     $.ajax({
+//         url="/right2",
+//         success:function(data){
+//             ec_right2_option.series[0].data=data.kws
+//             ec_right2.setOption(ec_right2_option)
+//         },
+//         error:function(xhr,type,errorThrown){}
+//     })
+// }
+
+
+gettime()
+setInterval(gettime, 1000) // 一秒钟执行一次这个函数
+get_center1_data()
+setInterval(get_center1_data, 10000) // 十秒钟执行一次这个函数
+get_center2_data()
+setInterval(get_center2_data, 10000)
+get_left1_data()
+setInterval(get_left1_data, 10000)
 get_left2_data()
-// setInterval(get_left2_data, 10000)
+setInterval(get_left2_data, 10000)
+get_right1_data()
+setInterval(get_right1_data, 10000)
+// get_right2_data()
+// setInterval(get_right2_data, 10000)

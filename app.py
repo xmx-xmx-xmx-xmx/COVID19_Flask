@@ -2,6 +2,7 @@ from flask import Flask, json
 from flask import request # 获取参数
 from flask import render_template # 使用模板页面
 from flask import jsonify
+from jieba.analyse import extract_tags # 解析标签
 import utils # 导入自己写的utils
 app = Flask(__name__) # 创建flask实例，名叫app
 
@@ -70,6 +71,27 @@ def get_left2_data():
         confirm_add.append(b)
         suspect_add.append(c)
     return jsonify({"ds":ds, "confirm_add":confirm_add, "suspect_add":suspect_add})
+
+@app.route('/right1')
+def get_right1_data():
+    data = utils.get_right1_data()
+    city = []
+    confirm =[]
+    for k, v in data:
+        city.append(k)
+        confirm.append(int(v))
+    return jsonify({"city":city, "confirm":confirm})
+
+# @app.route('/right2')
+# def get_right2_data():
+#     data = utils.get_right2_data()
+#     info = []
+#     for k in data:
+#         i = k[0].replace('｜','') # 删除|
+#         tag = extract_tags(i) # jieba提取关键字
+#         for j in tag:
+#             info.append({"info":j})
+#     return jsonify({"kws":info})
 
 if __name__ == "__main__":
     app.run()

@@ -1,6 +1,7 @@
-var ec_right2 = echarts.init(document.getElementById("right2"), "dark");
+// 百度热搜接口不可用，此js文件弃用
+var ec_right2 = echarts.init(document.getElementById('right2'));
 
-var info = [];
+var kws = [];
 var option_right2 = {
 	title: {
 		text: "今日疫情热搜",
@@ -39,8 +40,8 @@ var option_right2 = {
 		},
 		right: null,
 		bottom: null,
-		data: info
+		data: kws
 	}]
 };
 //使用制定的配置项和数据显示图表
-ec_right2.setOption(option_right2);
+ec_right2.setOption(ec_right2_option);

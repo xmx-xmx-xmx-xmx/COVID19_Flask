@@ -11,19 +11,24 @@ var ec_right1_option = {
     xAxis: {
         type: 'category',
         data: [],
-        nameTextStyle:
-        {color: "#ffffff"},
+        axisLabel:{color: 'white',}
     },
     yAxis: {
         type: 'value',
-        nameTextStyle:
-        {color: "#ffffff"},
+        axisLabel:{color: 'white',}
     },
     tooltip: {
 		trigger: 'axis',
 		axisPointer: {
 			type: 'shadow'},
 	},
+    toolbox: {
+        itemSize: 15,
+        showTitle: true,
+        feature: {
+            saveAsImage: {}
+        }
+    },
     series: [{
         data: [],
         type: 'bar',
@@ -33,13 +38,6 @@ var ec_right1_option = {
         },
         itemStyle:{
             color:'#5C7BD9'
-        },
-        toolbox: {
-            itemSize: 15,
-            showTitle: true,
-            feature: {
-                saveAsImage: {}
-            }
         },
     }]    
 };

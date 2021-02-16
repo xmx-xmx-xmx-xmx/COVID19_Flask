@@ -34,7 +34,7 @@ var ec_center_option = {
         name: '累计确诊人数',
         type: 'map',
         mapType: 'china',
-        roam: true, //拖动和缩放
+        roam: false, //拖动和缩放
         zoom: 0.8,
         itemStyle: {
             normal: {

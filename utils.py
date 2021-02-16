@@ -16,14 +16,14 @@ def get_conn(): # 连接数据库
     cursor = conn.cursor()  # 执行完毕返回的结果集默认以元组显示
     return conn, cursor
 
-def close_conn(conn, cursor):
+def close_conn(conn, cursor): # 关闭连接
     if cursor:
         cursor.close()
     if conn:
         conn.close()
 
 
-def query(sql, *args): # 这个函数是获取中间四个数据的
+def query(sql, *args): # 通用sql查询
     conn, cursor = get_conn()
     cursor.execute(sql, args)
     res = cursor.fetchall()
@@ -32,11 +32,7 @@ def query(sql, *args): # 这个函数是获取中间四个数据的
 
 def get_center1_data():
     """
-        释义：
-        第一行 查找累计确诊
-        第二行 
-        第三行 
-        第四行 
+        释义：查找累计确诊 现有疑似 累计治愈 累计死亡
     """
     sql = "select (select confirm from history order by ds desc limit 1), (select suspect from history order by ds desc limit 1), sum(heal), sum(dead) from detail where update_time=(select update_time from detail order by update_time desc limit 1)"
     res = query(sql)
@@ -82,7 +78,7 @@ def get_right1_data():
     res = query(sql4)
     return res
 
-# def get_right2_data():
+# def get_right2_data(): # 弃用
 #     """
 #         释义：获取右2
 #     """

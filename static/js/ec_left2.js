@@ -40,8 +40,7 @@ var ec_left2_option = {
     },
     xAxis: {
         type: 'category',
-        nameTextStyle:
-        {color: "#ffffff"},
+        axisLabel:{color: 'white',},
         //x轴坐标点开始与结束点位置都不在最边缘
 		// boundaryGap : true,
 		data: []//['01.20', '01.21', '01.22']

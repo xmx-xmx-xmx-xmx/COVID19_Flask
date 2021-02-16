@@ -97,16 +97,16 @@ function get_right1_data(){
 
 
 gettime()
-setInterval(gettime, 1000) // 一秒钟执行一次这个函数
 get_center1_data()
-setInterval(get_center1_data, 10000) // 十秒钟执行一次这个函数
 get_center2_data()
-setInterval(get_center2_data, 10000)
 get_left1_data()
-setInterval(get_left1_data, 10000)
 get_left2_data()
-setInterval(get_left2_data, 10000)
 get_right1_data()
-setInterval(get_right1_data, 10000)
+setInterval(gettime, 1000) // 一秒钟执行一次这个函数
+setInterval(get_center1_data, 100000) // 一小时执行一次这个函数
+setInterval(get_center2_data, 100000)
+setInterval(get_left1_data, 100000)
+setInterval(get_left2_data, 100000)
+setInterval(get_right1_data, 100000)
 // get_right2_data()
 // setInterval(get_right2_data, 10000)

@@ -1,9 +1,13 @@
+# -*- coding: UTF-8 -*-
+# app.py
+# 主应用程序文件
+# Release: 2021/02/17
 from flask import Flask
 from flask import json
 from flask import request # 获取参数
 from flask import render_template # 使用模板页面
 from flask import jsonify
-from jieba.analyse import extract_tags # 解析标签
+# from jieba.analyse import extract_tags # 解析标签
 import utils # 导入自己写的utils
 app = Flask(__name__) # 创建flask实例，名叫app
 

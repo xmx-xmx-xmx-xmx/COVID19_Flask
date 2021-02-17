@@ -17,7 +17,7 @@ function get_center1_data(){
 url: "/center1",
 success: function(data) {
     $("#num h1").eq(0).text(data.confirm)
-     // 后台定义方法get时间 eq 选第几个
+     // 后台定义方法get数据 eq 选第几个
     $("#num h1").eq(1).text(data.suspect)
     $("#num h1").eq(2).text(data.heal)
     $("#num h1").eq(3).text(data.dead)
@@ -102,8 +102,8 @@ get_center2_data()
 get_left1_data()
 get_left2_data()
 get_right1_data()
-setInterval(gettime, 1000) // 一秒钟执行一次这个函数
-setInterval(get_center1_data, 100000) // 一小时执行一次这个函数
+setInterval(gettime, 1000) // 时间刷新，一秒钟执行一次这个函数
+setInterval(get_center1_data, 100000) // 这些不需要过于频繁刷新，一小时执行一次这个函数
 setInterval(get_center2_data, 100000)
 setInterval(get_left1_data, 100000)
 setInterval(get_left2_data, 100000)

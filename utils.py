@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import time
 import pymysql
 from pymysql.cursors import Cursor

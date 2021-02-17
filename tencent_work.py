@@ -1,6 +1,7 @@
+# -*- coding: UTF-8 -*-
 # tencent_work.py
 # 腾讯数据爬取用程序 定时执行
-
+# Release: 2021/02/17
 import pymysql
 import time
 import json
@@ -166,5 +167,5 @@ def update_history():
         close_conn(conn, cursor)        
 
 update_detail()
-insert_history() 
+# insert_history() 
 update_history()

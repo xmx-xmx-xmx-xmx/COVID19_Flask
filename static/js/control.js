@@ -11,7 +11,6 @@ error: function(xhr, type, errorThrown) {
 });
 }
 
-
 function get_center1_data(){
     $.ajax({
 url: "/center1",
@@ -83,19 +82,6 @@ function get_right1_data(){
     })
 }
 
-
-// function get_right2_data(){
-//     $.ajax({
-//         url="/right2",
-//         success:function(data){
-//             ec_right2_option.series[0].data=data.kws
-//             ec_right2.setOption(ec_right2_option)
-//         },
-//         error:function(xhr,type,errorThrown){}
-//     })
-// }
-
-
 gettime()
 get_center1_data()
 get_center2_data()
@@ -108,5 +94,3 @@ setInterval(get_center2_data, 100000)
 setInterval(get_left1_data, 100000)
 setInterval(get_left2_data, 100000)
 setInterval(get_right1_data, 100000)
-// get_right2_data()
-// setInterval(get_right2_data, 10000)
